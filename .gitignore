@@ -1,0 +1,24 @@
+# .gitignore for the public replication package
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env
+*.tif
+!data/boundary/**
+data/raw/**
+!data/raw/README.md
+data/derived/detections/
+data/derived/segments/
+data/derived/analysis/
+*.pth
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+results/figures/**
+!results/figures/.gitkeep
+_build_clean_scripts.py
+*.zip
+credentials*.json
+*service*account*.json
+GOOGLE_APPLICATION_CREDENTIALS*
