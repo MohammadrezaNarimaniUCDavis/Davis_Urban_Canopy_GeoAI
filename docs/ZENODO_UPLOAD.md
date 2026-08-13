@@ -10,25 +10,31 @@ Use this when minting the public data DOI. After publication, paste the DOI into
 
 | Field | Value |
 |---|---|
-| **Title** | Davis Urban Canopy GeoAI — derived geospatial products (Davis, California) |
+| **Title** | Davis Urban Canopy GeoAI — geospatial products and NAIP mosaic (Davis, California) |
 | **Upload type** | Dataset |
 | **Creators** | Mohammadreza Narimani; Shreyan Mitra; Parastoo Farajpoor |
 | **Affiliation** | University of California, Davis |
-| **License** | Creative Commons Attribution 4.0 (CC-BY-4.0) recommended for data |
+| **License** | Creative Commons Attribution 4.0 (CC-BY-4.0) recommended for data (NAIP retains USDA terms) |
 | **Related** | GitHub: `MohammadrezaNarimaniUCDavis/Davis_Urban_Canopy_GeoAI` |
 | **Keywords** | urban canopy, GeoAI, DeepForest, SAM, Davis CA, NAIP, USDA canopy |
 
-## Files to upload
+## Files to upload (two items)
 
-Upload the zip prepared under the private project:
+Upload from `Urban_Forest_Davis/Manuscript/V4/zenodo_deposit/`:
 
-`Urban_Forest_Davis/Manuscript/V4/zenodo_deposit/Davis_Urban_Canopy_GeoAI_derived_data.zip`
+1. **`Davis_Urban_Canopy_GeoAI_derived_data.zip`** (~7 MB) — boundary, derived products, USDA reference  
+2. **`raw/davis_naip_2022.tif`** (~581 MB) — USDA NAIP 2022 RGB+NIR clipped to the TIGER city shapefile  
 
-Contents (also mirrored as a folder next to this note in the private archive):
+Keep them as **separate Zenodo files** (do not nest the 581 MB NAIP inside the zip — better for upload resume and downloaders who only need tables).
+
+Folder mirror:
 
 ```
 zenodo_deposit/
   README_ZENODO.txt
+  raw/
+    davis_naip_2022.tif          # UPLOAD SEPARATELY
+    README_NAIP.txt
   boundary/davis_city_boundary.*
   derived/
     canopy_mask.tif
@@ -46,7 +52,7 @@ zenodo_deposit/
 
 ## Description text (paste into Zenodo)
 
-Derived products supporting optical GeoAI canopy mapping for the City of Davis, California. Includes DeepForest+SAM canopy mask and crown detections, Landsat LST, street centerlines used in the paper, the 100 m enriched analysis table, fair USDA comparison metrics on the Census TIGER municipal extent, and the USDA/CAL FIRE 2022 canopy reference raster redistributed for replication. Companion code: https://github.com/MohammadrezaNarimaniUCDavis/Davis_Urban_Canopy_GeoAI
+Geospatial products supporting optical GeoAI canopy mapping for the City of Davis, California. Includes the USDA NAIP 2022 RGB+NIR mosaic clipped to the Census TIGER municipal boundary (~25.9 km2), DeepForest+SAM canopy mask and crown detections, Landsat LST, street centerlines, the 100 m enriched analysis table, fair USDA comparison metrics, and the USDA/CAL FIRE 2022 canopy reference raster redistributed for replication. Companion code: https://github.com/MohammadrezaNarimaniUCDavis/Davis_Urban_Canopy_GeoAI
 
 ## After publishing
 
