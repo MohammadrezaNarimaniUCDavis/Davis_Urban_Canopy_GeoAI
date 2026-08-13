@@ -45,19 +45,21 @@ Claims are framed as **association / co-location / screening**, not causal cooli
 Davis_Urban_Canopy_GeoAI/
 ├── data/
 │   ├── boundary/          # Census TIGER Davis city boundary (shipped)
-│   ├── derived/           # Small tables shipped; large rasters from Zenodo
-│   ├── reference/         # USDA canopy (from Zenodo)
-│   └── raw/               # NAIP from Zenodo / SAM weights (not shipped on GitHub)
+│   ├── derived/           # Enriched 100 m table (rasters from Zenodo)
+│   ├── reference/         # USDA canopy raster (from Zenodo)
+│   └── raw/               # NAIP mosaic (from Zenodo)
 ├── scripts/
 │   ├── pipeline/          # 01-04: NAIP -> detect -> SAM -> 100 m grid
 │   ├── run_spatial_stats.py
 │   ├── 05_fair_usda_compare.py
 │   ├── 06_shade_attention_maps.py
-│   └── 07_weighted_attention_map.py
+│   ├── 07_weighted_attention_map.py
+│   └── 08_watch_zone_counts.py
 ├── src/paths.py           # All I/O paths (no personal directories)
 ├── results/tables/        # Precomputed statistical tables (shipped)
-├── docs/                  # Data sources, Zenodo notes
+├── docs/                  # Data unpack, weights, third-party notice
 ├── requirements.txt
+├── requirements-pipeline.txt
 ├── CITATION.cff
 └── LICENSE
 ```
@@ -84,7 +86,10 @@ python scripts/run_spatial_stats.py
 # 4. Shade / weighted attention maps
 python scripts/06_shade_attention_maps.py
 python scripts/07_weighted_attention_map.py
+python scripts/08_watch_zone_counts.py
 ```
+
+See [`scripts/README.md`](scripts/README.md) for the full run order. For DeepForest/SAM re-detection, also install `requirements-pipeline.txt`.
 
 ### Full fair USDA comparison (needs Zenodo rasters)
 

@@ -9,7 +9,7 @@ Outputs:
   results/figures/04a_spearman_weights.png
   results/figures/04b_weighted_attention_map.png
   results/tables/spearman_weights.csv
-  WEIGHTS_FROM_SPEARMAN.md
+  docs/WEIGHTS.md
 """
 
 from __future__ import annotations
@@ -163,8 +163,8 @@ def write_md(path: Path, w: pd.DataFrame):
     lines = [
         "# Spearman-weighted attention map",
         "",
-        "The heatmap (`manuscript Spearman heatmap`) shows which layers",
-        "actually associate with canopy. We turn that into map weights:",
+        "Layer weights follow |Spearman ρ| with 100 m canopy cover",
+        "(see `results/tables/spearman_vs_canopy.csv`):",
         "",
         "**weight ∝ |Spearman ρ(layer, canopy)|** (normalized to 100%).",
         "",
@@ -241,7 +241,7 @@ def main():
         "White notches follow the official city boundary (not missing data).",
     )
 
-    write_md(ROOT / "docs" / "WEIGHTS_FROM_SPEARMAN.md", wtab)
+    write_md(ROOT / "docs" / "WEIGHTS.md", wtab)
     print("Weights:")
     print(wtab[["label", "rho", "weight"]].to_string(index=False))
     print(f"Wrote {FIG / '04a_spearman_weights.png'}")

@@ -16,8 +16,7 @@ data/derived/analysis/
 Thumbs.db
 .ipynb_checkpoints/
 results/figures/**
-!results/figures/.gitkeep
-_build_clean_scripts.py
+!results/figures/README.md
 *.zip
 credentials*.json
 *service*account*.json

@@ -1,23 +1,27 @@
 ﻿cff-version: 1.2.0
 message: "If you use this software or derived data, please cite it as below."
 type: software
-title: "Davis Urban Canopy GeoAI: replication code and derived data"
+title: "Davis Urban Canopy GeoAI: replication code"
 authors:
   - family-names: Narimani
     given-names: Mohammadreza
     email: mnarimani@ucdavis.edu
-    affiliation: "University of California, Davis"
+    affiliation: "Department of Biological and Agricultural Engineering, University of California, Davis"
   - family-names: Mitra
     given-names: Shreyan
-    affiliation: "University of California, Davis"
+    affiliation: "California High School, San Ramon, CA"
   - family-names: Farajpoor
     given-names: Parastoo
-    affiliation: "University of California, Davis"
+    affiliation: "Department of Biological and Agricultural Engineering, University of California, Davis"
 version: "1.0.0"
-date-released: "2026-08-12"
+date-released: "2026-08-13"
 license: MIT
 repository-code: "https://github.com/MohammadrezaNarimaniUCDavis/Davis_Urban_Canopy_GeoAI"
 url: "https://doi.org/10.5281/zenodo.21925527"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21925527
+    description: Companion geospatial dataset on Zenodo
 abstract: >-
   Replication package for optical GeoAI urban-canopy mapping in Davis, California
   (DeepForest + NDVI + SAM), fair USDA comparison on the Census TIGER city extent,

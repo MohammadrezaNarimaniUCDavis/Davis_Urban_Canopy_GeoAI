@@ -1,12 +1,12 @@
 """
-2-3 story maps in the same style as the smoothed OLS residual figure.
+Shade-attention surface for Davis 100 m cells.
 
-1) Canopy vs expected (OLS residual) — places with more/less trees than
-   heat + built + density + poverty would suggest
-2) Heat vs canopy — places hotter/cooler than tree cover (+ built) suggests
-3) Shade-attention surface — continuous low-canopy + high-heat score (smoothed)
+Builds a continuous low-canopy + high-LST screening map (KNN-smoothed)
+clipped to the Census TIGER city boundary.
 
-Outputs: results/figures/
+Output: results/figures/03_shade_attention_surface.png
+
+Planning screen only — not a Tree Equity Score and not a causal cooling map.
 """
 
 from __future__ import annotations
@@ -23,7 +23,6 @@ import pandas as pd
 from libpysal.weights import KNN, lag_spatial
 from shapely.geometry import box as shapely_box
 from shapely.ops import unary_union
-from spreg import OLS
 
 ROOT = Path(__file__).resolve().parents[1]
 FIG = ROOT / "results" / "figures"
@@ -78,19 +77,6 @@ def fill_missing_knn(gdf: gpd.GeoDataFrame, col: str, rounds: int = 8) -> pd.Ser
     if (~np.isfinite(x)).any():
         x[~np.isfinite(x)] = np.nanmean(x[np.isfinite(x)])
     return pd.Series(x, index=g.index)
-
-
-def fit_resid(y: np.ndarray, X: np.ndarray, names: list[str], w):
-    ols = OLS(
-        y.reshape((-1, 1)),
-        X,
-        w=w,
-        name_y="y",
-        name_x=names,
-        spat_diag=False,
-        moran=False,
-    )
-    return np.asarray(ols.u).ravel()
 
 
 def story_map_raster(
@@ -177,25 +163,6 @@ def story_map_raster(
     plt.close(fig)
 
 
-def write_readme(path: Path):
-    path.write_text(
-        """# Story maps (3 figures)
-
-Same visual language as the smoothed residual map you liked.
-
-| Figure | Plain reading |
-|---|---|
-| `01_more_or_less_canopy_than_expected.png` | Red = more trees than heat/built/density/poverty suggest. Blue = fewer. |
-| `02_hotter_or_cooler_than_canopy_suggests.png` | Red = hotter ground than canopy (+ built) would suggest. Blue = cooler. |
-| `03_shade_attention_surface.png` | Red = stronger “low canopy + hot” attention. Blue = opposite. |
-
-All maps use KNN-8 neighbor smoothing so neighborhoods read clearly (not salt-and-pepper).
-Associations only — not cause-and-effect; not an official Tree Equity Score.
-""",
-        encoding="utf-8",
-    )
-
-
 def full_city_grid(city_wgs84: gpd.GeoDataFrame, cell_m: float = 100.0) -> gpd.GeoDataFrame:
     """Regular grid clipped to city — every intersecting 100 m cell, no interior holes."""
     city = city_wgs84.to_crs(32610)
@@ -272,8 +239,7 @@ def main():
         "Planning screen only — not a Tree Equity Score.",
     )
 
-    pass  # optional local readme skipped
-    print(f"Wrote story maps to {FIG}")
+    print(f"Wrote shade-attention map to {FIG}")
 
 
 if __name__ == "__main__":
