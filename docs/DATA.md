@@ -1,17 +1,17 @@
-# Data guide
+﻿# Data guide
 
 ## Shipped with this GitHub repository
 
 | Path | Description |
 |---|---|
-| `data/boundary/davis_city_boundary.*` | Census TIGER Place boundary for Davis, CA (official analysis extent, ~25.9 km²) |
+| `data/boundary/davis_city_boundary.*` | Census TIGER Place boundary for Davis, CA (official analysis extent, ~25.9 kmÂ²) |
 | `data/derived/cell_context_enriched.csv` | 100 m cell table used for spatial statistics and screening maps |
 | `data/derived/fair_comparison_metrics_tiger.csv` | Locked fair USDA comparison metrics |
 | `results/tables/*.csv` | Precomputed Spearman / Moran / model / KW tables |
 
 ## From Zenodo (required for full replication)
 
-Download the deposit (`https://doi.org/10.5281/zenodo.XXXXXXX`) and place files as:
+Download the deposit (`https://doi.org/10.5281/zenodo.21925527`) and place files as:
 
 ```
 data/

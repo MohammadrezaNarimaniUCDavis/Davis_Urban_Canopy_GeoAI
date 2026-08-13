@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+﻿cff-version: 1.2.0
 message: "If you use this software or derived data, please cite it as below."
 type: software
 title: "Davis Urban Canopy GeoAI: replication code and derived data"
@@ -17,7 +17,7 @@ version: "1.0.0"
 date-released: "2026-08-12"
 license: MIT
 repository-code: "https://github.com/MohammadrezaNarimaniUCDavis/Davis_Urban_Canopy_GeoAI"
-url: "https://doi.org/10.5281/zenodo.XXXXXXX"
+url: "https://doi.org/10.5281/zenodo.21925527"
 abstract: >-
   Replication package for optical GeoAI urban-canopy mapping in Davis, California
   (DeepForest + NDVI + SAM), fair USDA comparison on the Census TIGER city extent,
