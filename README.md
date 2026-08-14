@@ -5,7 +5,6 @@ Reproducible code and derived data for optical GeoAI urban-canopy mapping in **D
 > *From crown candidates to neighborhood screening: integrating optical GeoAI and spatial modeling for urban-canopy assessment in Davis, California*
 
 **Authors:** Mohammadreza Narimani, Shreyan Mitra, Parastoo Farajpoor  
-**Target journal:** *Geocarto International*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21925527-blue.svg)](https://doi.org/10.5281/zenodo.21925527)
